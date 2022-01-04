@@ -3,11 +3,21 @@ from django.contrib import admin
 from places.models import Place, Image
 
 
+#@admin.register(Place)
+class ImageInline(admin.TabularInline):
+    model = Image
+    fields = ['place', 'image', 'number']
+
 @admin.register(Place)
 class PlaceAdmin(admin.ModelAdmin):
-    pass
+    inlines = [
+        ImageInline,
+    ]
 
-
-@admin.register(Image)
-class ImageAdmin(admin.ModelAdmin):
-    pass
+# class BookInline(admin.TabularInline):
+#     model = Book
+#
+# class AuthorAdmin(admin.ModelAdmin):
+#     inlines = [
+#         BookInline,
+#     ]
