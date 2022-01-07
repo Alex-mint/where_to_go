@@ -2,7 +2,7 @@
 
 Интерактивная карта Москвы. Нажав на место на карте получите больше информации об этом месте.  [Сайт](http://evv71.pythonanywhere.com/)
 
-<img src="https://dvmn.org/media/lessons/ezgif.com-gif-maker_4nWhtfQ.gif">
+![alt text](https://dvmn.org/media/lessons/ezgif.com-gif-maker_4nWhtfQ.gif)
 
 ## Как установить
 
