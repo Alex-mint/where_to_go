@@ -23,9 +23,9 @@ class Image(models.Model):
         Place, on_delete=models.CASCADE, related_name='images',
         verbose_name="Место съёмки"
     )
-    number = models.IntegerField('Позиция', null=True, blank=True)
-    image = models.ImageField('Картинка', null=True, blank=True)
-    my_order = models.PositiveIntegerField('Позиция', default=0)
+    #number = models.IntegerField('Позиция', null=True, blank=True)
+    image = models.ImageField('Картинка')
+    my_order = models.PositiveIntegerField('Позиция', default=0, blank=True)
 
     def __str__(self):
         return f'{self.number}. {self.place.title}'
