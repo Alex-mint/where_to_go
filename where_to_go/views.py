@@ -6,7 +6,7 @@ from places.models import Place, Image
 from django.urls import reverse
 
 
-def all_places(request, post_id):
+def get_place(request, post_id):
     try:
         place = Place.objects.get(pk=post_id)
     except Place.DoesNotExist:
@@ -28,7 +28,6 @@ def all_places(request, post_id):
 
 def index(request):
     places = Place.objects.all()
-
     places_with_description = []
     for place in places:
         description = {
@@ -43,7 +42,7 @@ def index(request):
                     "properties": {
                         "title": place.title,
                         "placeId": place.id,
-                        "detailsUrl": reverse(all_places, args=[place.id])#"https://raw.githubusercontent.com/devmanorg/where-to-go-frontend/master/places/moscow_legends.json"
+                        "detailsUrl": reverse(get_place, args=[place.id])
                     }
                 }
             ]
