@@ -8,10 +8,9 @@ from django.urls import reverse
 
 def get_place(request, post_id):
     place = get_object_or_404(Place, pk=post_id)
-    images = get_list_or_404(Image, place=place)
     place_json = {
         "title": place.title,
-        'imgs': [item.image.url for item in images],
+        'imgs': [item.image.url for item in place.images.all()],
         'description_short': place.description_short,
         'description_long': place.description_long,
         'coordinates': {
