@@ -28,7 +28,7 @@ class Image(models.Model):
     my_order = models.PositiveIntegerField('Позиция', default=0, blank=True)
 
     def __str__(self):
-        return f'{self.number}. {self.place.title}'
+        return f'{self.id}. {self.place.title}'
 
 
     class Meta(object):

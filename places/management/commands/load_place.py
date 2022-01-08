@@ -36,5 +36,5 @@ class Command(BaseCommand):
                 response.raise_for_status()
                 content = ContentFile(response.content)
                 image_name = Path(urlparse(image_url).path).name
-                new_image = Image(place=place, number=image_numb)
+                new_image = Image(place=place)
                 new_image.image.save(image_name, content, save=True)
