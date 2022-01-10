@@ -8,7 +8,7 @@ from django.urls import reverse
 
 def get_place(request, post_id):
     place = get_object_or_404(Place, pk=post_id)
-    place_json = {
+    context = {
         "title": place.title,
         'imgs': [item.image.url for item in place.images.all()],
         'description_short': place.description_short,
@@ -18,7 +18,7 @@ def get_place(request, post_id):
             'lat': place.lat
         }
     }
-    return JsonResponse(place_json, safe=False,
+    return JsonResponse(context, safe=False,
                         json_dumps_params={'ensure_ascii': False, 'indent': 2})
 
 
@@ -44,5 +44,5 @@ def index(request):
             ]
         }
         places_with_description.append(description)
-    return render(request, 'index.html', {'places_geojson': places_with_description})
-
+    return render(request, 'index.html',
+                  {'places_geojson': places_with_description})

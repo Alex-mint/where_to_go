@@ -22,8 +22,8 @@ class Command(BaseCommand):
             place_detail = response.json()
 
             place, _ = Place.objects.get_or_create(
-                title = place_detail['title'],
-                defaults = {
+                title=place_detail['title'],
+                defaults={
                     'description_short': place_detail['description_short'],
                     'description_long': place_detail['description_long'],
                     'lng': place_detail['coordinates']['lng'],
